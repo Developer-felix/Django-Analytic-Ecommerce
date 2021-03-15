@@ -10,7 +10,7 @@ User = settings.AUTH_USER_MODEL
 class BillingProfile(models.Model):
     """
     """
-    user = models.OneToOneField(User,blank=True, null=True)
+    user = models.OneToOneField(User,blank=True, null=True,on_delete=models.CASCADE)
     email = models.EmailField()
     active = models.BooleanField(default=True)
     timestamp = models.DateTimeField(auto_now_add=True)

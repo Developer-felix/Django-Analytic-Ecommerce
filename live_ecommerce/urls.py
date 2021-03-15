@@ -1,17 +1,23 @@
 from django.conf.urls import include,url
 from django.contrib import admin
+from django.urls import path
 
 
 from django.conf.urls.static import static
 from django.conf import settings
 
 
+# app_name="search"
+# app_name = "cart"
+# app_name="accounts"
+
+
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    url(r'',include('products.urls',namespace='products')),
-    url(r'search/',include('search.urls',namespace='search')),
-    url(r'cart/',include('cart.urls',namespace='cart')),
-    url(r'accounts/',include('accounts.urls',namespace='accounts')),
+    path('admin/', admin.site.urls),
+    path('',include(('products.urls',"products"),namespace='products')),
+    path('search/',include(('search.urls',"search"),namespace='search')),
+    path('cart/',include(('cart.urls',"cart"),namespace='cart')),
+    path('accounts/',include(('accounts.urls',"accounts"),namespace='accounts')),
 ]
 
 

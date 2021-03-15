@@ -18,7 +18,7 @@ ORDER_STATUS_CHOICES = (
 class Order(models.Model):
     """
     """
-    cart = models.ForeignKey(Cart)
+    cart = models.ForeignKey(Cart,on_delete=models.CASCADE)
     status = models.CharField(max_length=120,default='created',choices=ORDER_STATUS_CHOICES)
     order_id = models.CharField(max_length=120,unique=True,blank=True)
     shipping_total = models.DecimalField(default=5.99,max_digits=100,decimal_places=2) #like a delivery total if it requires delivery

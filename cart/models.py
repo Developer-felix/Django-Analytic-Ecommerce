@@ -45,7 +45,7 @@ class Cart(models.Model):
     """
     Description:Store a cart belonging to a user.\n
     """
-    user = models.ForeignKey(User,blank=True, null=True)
+    user = models.ForeignKey(User,blank=True, null=True,on_delete=models.CASCADE)
     products = models.ManyToManyField(Product,blank=True)
     subtotal = models.DecimalField(default=0.00,max_digits=100,decimal_places=2)
     total = models.DecimalField(default=0.00,max_digits=100,decimal_places=2)
